@@ -16,11 +16,21 @@ public final class App {
      */
     public static void main(String... args) {
 
-        // process weather data
+        // process weather csv file data
         String csvFilePath = "src/main/resources/de/exxcellent/challenge/weather.csv";
 
         try {
-            CsvFileHandler.printDayNumberWithMinimumTemperatureSpread(csvFilePath);
+            CsvFileHandler.handleCsvFileData("weather", csvFilePath, "Day", "MxT", "MnT");
+        } catch (FileNotFoundException exception) {
+            // handle file not found exception
+            exception.printStackTrace();
+        }
+
+        // process football csv file data
+        csvFilePath = "src/main/resources/de/exxcellent/challenge/football.csv";
+
+        try {
+            CsvFileHandler.handleCsvFileData("football", csvFilePath, "Team", "Goals", "Goals Allowed");
         } catch (FileNotFoundException exception) {
             // handle file not found exception
             exception.printStackTrace();
