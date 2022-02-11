@@ -2,11 +2,6 @@ package de.exxcellent.challenge;
 
 public class NotFoundColumnException extends Exception {
     
-    // Parameterless Constructor
+    // Parameterless NotFoundColumnException constructor
     public NotFoundColumnException() {}
-
-    // Constructor that accepts a message
-    public NotFoundColumnException(String message) {
-       super(message);
-    }
 }
