@@ -27,15 +27,15 @@ public final class App {
 
         List<String> filePaths = Arrays.asList(weatherCsvFilePath, footballCsvFilePath);
 
-        FileDataAnalyzer fileAnalyzer = new FileDataAnalyzer();
+        FileDataAnalyzer fileDataAnalyzer = new FileDataAnalyzer();
 
         // analyze csv file data according to the given challenge task name
         try {
             for (String filePath : filePaths) {
                 if (filePath.toLowerCase().contains(weatherTaskName)) {
-                    fileAnalyzer.analyzeCsvFileData(weatherTaskName, filePath, "Day", "MxT", "MnT");
+                    fileDataAnalyzer.analyzeCsvFileData(weatherTaskName, filePath, "Day", "MxT", "MnT");
                 } else if (filePath.toLowerCase().contains(footballTaskName)) {
-                    fileAnalyzer.analyzeCsvFileData(footballTaskName, filePath, "Team", "Goals", "Goals Allowed");
+                    fileDataAnalyzer.analyzeCsvFileData(footballTaskName, filePath, "Team", "Goals", "Goals Allowed");
                 }
             }
         } catch (FileNotFoundException exception) {
