@@ -12,6 +12,9 @@ import java.util.List;
  */
 public final class App {
 
+    public static final String weatherTaskName = "weather";
+    public static final String footballTaskName = "football";
+
     /**
      * Display the results of the challenge tasks.
      */
@@ -21,16 +24,14 @@ public final class App {
         // declare variables
         String weatherCsvFilePath = "src/main/resources/de/exxcellent/challenge/weather.csv";
         String footballCsvFilePath = "src/main/resources/de/exxcellent/challenge/football.csv";
-        String weatherTaskName = "weather";
-        String footballTaskName = "football";
 
-        List<String> filepaths = Arrays.asList(weatherCsvFilePath, footballCsvFilePath);
+        List<String> filePaths = Arrays.asList(weatherCsvFilePath, footballCsvFilePath);
 
         FileDataAnalyzer fileAnalyzer = new FileDataAnalyzer();
 
         // analyze csv file data according to the given challenge task name
         try {
-            for (String filePath : filepaths) {
+            for (String filePath : filePaths) {
                 if (filePath.toLowerCase().contains(weatherTaskName)) {
                     fileAnalyzer.analyzeCsvFileData(weatherTaskName, filePath, "Day", "MxT", "MnT");
                 } else if (filePath.toLowerCase().contains(footballTaskName)) {

@@ -99,10 +99,10 @@ public class FileDataAnalyzer implements FileAnalyzer {
             // calculate difference depending on challenge task name
             int valuesDifference = secondColumnValue - thirdColumnValue;
             switch (challengeTaskName) {
-                case "football":
-                    valuesDifference = Math.abs(valuesDifference);
+                case App.weatherTaskName:
                     break;
-                case "weather":
+                case App.footballTaskName:
+                    valuesDifference = Math.abs(valuesDifference);
                     break;
             }
             dataMap.put(firstColumnValue, valuesDifference);
@@ -110,20 +110,20 @@ public class FileDataAnalyzer implements FileAnalyzer {
 
         // get the corresponding results according to the challenge task
         Entry<String, Integer> resultWithMinimumDifference = null;
-        for (Entry<String, Integer> entry : dataMap.entrySet()) {
-            if (resultWithMinimumDifference == null || resultWithMinimumDifference.getValue() > entry.getValue()) {
-                resultWithMinimumDifference = entry;
+        for (Entry<String, Integer> dataEntry : dataMap.entrySet()) {
+            if (resultWithMinimumDifference == null || resultWithMinimumDifference.getValue() > dataEntry.getValue()) {
+                resultWithMinimumDifference = dataEntry;
             }
         }
 
         // display results to the console
         String firstMessage, secondMessage;
         switch (challengeTaskName) {
-            case "weather":
+            case App.weatherTaskName:
                 firstMessage = "Day number: %s";
                 secondMessage = "Minimum temperature spread: %d \n";
                 break;
-            case "football":
+            case App.footballTaskName:
                 firstMessage = "Team name: %s";
                 secondMessage = "Absolute smallest difference: %d \n";
                 break;
